@@ -1,0 +1,29 @@
+{
+  "name": "gsheet2json",
+  "version": "1.0.0",
+  "description": "Converts Google Sheets configuration rows to JSON representation for consuming in Node.js Apps",
+  "main": "start.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naaraayaNan/gsheet2json.git"
+  },
+  "keywords": [
+    "GSheet2JSON",
+    "googlesheets-to-JSON",
+    "convert",
+    "sheets",
+    "JSON"
+  ],
+  "author": "naaraayaNan (https://github.com/naaraayaNan)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/naaraayaNan/gsheet2json/issues"
+  },
+  "homepage": "https://github.com/naaraayaNan/gsheet2json#readme"
+}
