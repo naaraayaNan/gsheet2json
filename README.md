@@ -17,4 +17,12 @@
 6. Put the *.json file you just downloaded in a directory of your choosing. This directory must be private (you can't let anyone get access to this), but accessible to your web server code
 7. Set the environment variable **GOOGLE_APPLICATION_CREDENTIALS** to the path of the JSON file downloaded
 
-### Test run **./app/test/readGSheet.js** on node prompt to verify whether data in the input Sheets document is read properly using the credentials
+## Usage info
+
+### Open terminal/command prompt from the folder where this project code is cloned or downloaded and install this app using:
+    npm install
+
+### Test run **./app/test/readGSheet.js** on terminal/command prompt using:
+    node ./app/test/readGSheet.js
+
+### Output would show data from the sample GSheets document read using credentials in *env-var*
