@@ -25,5 +25,12 @@
   "bugs": {
     "url": "https://github.com/naaraayaNan/gsheet2json/issues"
   },
-  "homepage": "https://github.com/naaraayaNan/gsheet2json#readme"
+  "homepage": "https://github.com/naaraayaNan/gsheet2json#readme",
+  "dependencies": {
+    "google-auth-library": "^0.10.0",
+    "googleapis": "^19.0.0"
+  },
+  "devDependencies": {
+    "standard": "^10.0.2"
+  }
 }

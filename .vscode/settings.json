@@ -1,11 +1,5 @@
 // Place your settings in this file to overwrite the default settings
 {
-  // Run the linter on save (onSave) or on type (onType)
-  "standard.run": "onSave",
-
-  // Turns auto fix on save on or off.
-  "standard.autoFixOnSave": true,
-
   // If set to true the extension will match some of the common Angular patterns
   "vsicons.presets.angular": false
 }
