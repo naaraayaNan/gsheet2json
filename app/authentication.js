@@ -1,8 +1,8 @@
 // (function () {
 'use strict'
 
-var appCommons = require('./util/appCommons')
-var googleAPIs = require('googleapis')
+var AppCommons = require('./util/appCommons')
+var GoogleAPIs = require('googleapis')
 
 function validAuthContext (context) {
   return context.hasOwnProperty('authScopes')
@@ -18,14 +18,14 @@ function validAuthContext (context) {
  */
 function wrapGAuthScope (context, callback) {
   if (!validAuthContext(context)) {
-    callback(appCommons.wrapInCustomErrorObject('Invalid Auth Context Detected!', 500), null)
+    callback(AppCommons.wrapInCustomErrorObject('Invalid Auth Context Detected!', 500), null)
 
     return
   }
 
-  googleAPIs.auth.getApplicationDefault(function (error, gAuth, prjId) {
+  GoogleAPIs.auth.getApplicationDefault(function (error, gAuth, prjId) {
     if (error) {
-      callback(appCommons.wrapInCustomErrorObject(error.message, 500), null)
+      callback(AppCommons.wrapInCustomErrorObject(error.message, 500), null)
 
       return
     }

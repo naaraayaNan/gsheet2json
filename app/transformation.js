@@ -1,8 +1,8 @@
 // (function () {
 'use strict'
 
-var appCommons = require('./util/appCommons')
-var gSheetsAPIv4 = require('googleapis').sheets('v4')
+var AppCommons = require('./util/appCommons')
+var GSheetsAPIv4 = require('googleapis').sheets('v4')
 var wrapGAuthScope = require('./authentication').wrapGAuthScope
 
 /**
@@ -16,7 +16,7 @@ var wrapGAuthScope = require('./authentication').wrapGAuthScope
 function convertGSheet2JSON (context, callback) {
   wrapGAuthScope(context, function (error, outcome) {
     if (error) {
-      callback(appCommons.wrapInCustomErrorObject(error.message, 500), null)
+      callback(AppCommons.wrapInCustomErrorObject(error.message, 500), null)
 
       return
     }
@@ -50,7 +50,7 @@ function extractGSheetIdFromItsLink (context) {
 
 function gatherGSheetData (context, callback) {
   if (!validReadContext(context)) {
-    callback(appCommons.wrapInCustomErrorObject('Invalid Read Context Detected!', 500), null)
+    callback(AppCommons.wrapInCustomErrorObject('Invalid Read Context Detected!', 500), null)
 
     return
   }
@@ -58,18 +58,18 @@ function gatherGSheetData (context, callback) {
   extractGSheetIdFromItsLink(context)
 
   // Calling the 'spreadsheets.get' API for sheet details
-  gSheetsAPIv4.spreadsheets.get({
+  GSheetsAPIv4.spreadsheets.get({
     auth: context.gAuth,
     spreadsheetId: context.gSheetId
   }, function (error, outcome) {
     if (error) {
-      callback(appCommons.wrapInCustomErrorObject(error.message, 500), null)
+      callback(AppCommons.wrapInCustomErrorObject(error.message, 500), null)
 
       return
     }
 
     if (!validGSheetInput(outcome)) {
-      callback(appCommons.wrapInCustomErrorObject('Invalid Spreadsheet Input Detected!', 400), null)
+      callback(AppCommons.wrapInCustomErrorObject('Invalid Spreadsheet Input Detected!', 400), null)
 
       return
     }
@@ -78,13 +78,13 @@ function gatherGSheetData (context, callback) {
     context.contentRange = outcome.sheets[0].properties.title
 
     // Calling the 'spreadsheets.values.get' API for sheet values
-    gSheetsAPIv4.spreadsheets.values.get({
+    GSheetsAPIv4.spreadsheets.values.get({
       auth: context.gAuth,
       spreadsheetId: context.gSheetId,
       range: context.contentRange
     }, function (error, outcome) {
       if (error) {
-        callback(appCommons.wrapInCustomErrorObject(error.message, 500), null)
+        callback(AppCommons.wrapInCustomErrorObject(error.message, 500), null)
 
         return
       }
