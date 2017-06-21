@@ -11,7 +11,7 @@
 
   // console.log(process.argv)
 
-  if (helpArgIndex !== -1 || process.argv.length <= 5 || gSheetArgIndex > authScopesArgIndex) {
+  if (helpArgIndex !== -1 || gSheetArgIndex > authScopesArgIndex || (gSheetArgIndex !== -1 && authScopesArgIndex !== -1 && (authScopesArgIndex - gSheetArgIndex !== 2))) {
     console.log('Usage:\n\tnode [path]readGsheet.js [--gSheetLink <GSheet-Hyperlink> --authScopes <space-delimited list of scopes>] | [--help]\n\nNOTE: authScopes argument must be the last one, if present, followed by the valid scopes values\n\nScope Values are one or more of:\n\thttps://www.googleapis.com/auth/spreadsheets.readonly \tAllows read-only access to the user\'s sheets and their properties.\n\thttps://www.googleapis.com/auth/spreadsheets \t\tAllows read/write access to the user\'s sheets and their properties.\n\thttps://www.googleapis.com/auth/drive.readonly \t\tAllows read-only access to the user\'s file metadata and file content.\n\thttps://www.googleapis.com/auth/drive.file \t\tPer-file access to files created or opened by the app.\n\thttps://www.googleapis.com/auth/drive \t\t\tFull, permissive scope to access all of a user\'s files. Request this scope only when it is strictly necessary.\n\n\t\t\tTerminating the task for now!! Retry as instructed...')
 
     return
