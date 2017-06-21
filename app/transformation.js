@@ -8,7 +8,7 @@ var wrapGAuthScope = require('./authentication').wrapGAuthScope
 /**
  * Async method to convert the Google Sheet from hyperlink obtained
  * through 'context.gSheetLink' field to JSON and return the result
- * through 'context.jsonData' field by invoking the callback method
+ * through 'context.configJSON' field by invoking the callback method
  *
  * @param {any} context
  * @param {any} callback
@@ -27,7 +27,7 @@ function convertGSheet2JSON (context, callback) {
 
 /**
  * Async method to convert the JSON representation data obtained
- * through 'context.jsonData' field to Google Sheet and return the
+ * through 'context.configJSON' field to Google Sheet and return the
  * result through 'context.gSheetLink' field via the callback method
  *
  * @param {any} context
@@ -104,7 +104,7 @@ function fetchWorksheetName (context, callback) {
 
 function isConversionDone (context) {
   // Comparing with total data rows in the input sans the header row
-  return Object.keys(context.jsonData).length === context.gSheetData.values.length - 1
+  return Object.keys(context.configJSON).length === context.gSheetData.values.length - 1
 }
 
 function processGSheetData (context, callback) {
@@ -156,12 +156,12 @@ function processGSheetData (context, callback) {
     })
   }
 
-  context.jsonData = {}
+  context.configJSON = {}
 
   dataRows.forEach(function (rowData, colIndex) {
     if (colIndex !== 0) {
       mapTheData(rowData, function (rowObject) {
-        context.jsonData[cellDataForHeader(rowData, 'T')] = rowObject
+        context.configJSON[cellDataForHeader(rowData, 'T')] = rowObject
 
         // Condition to collate the async mappings and return the results!
         if (isConversionDone(context)) {
@@ -173,6 +173,7 @@ function processGSheetData (context, callback) {
 }
 
 function validGSheetInput (gSheetObject) {
+  // Enforcing single-worksheet spreadsheets
   return gSheetObject.sheets.length === 1
 }
 

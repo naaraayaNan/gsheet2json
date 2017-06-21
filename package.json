@@ -27,8 +27,15 @@
   },
   "homepage": "https://github.com/naaraayaNan/gsheet2json#readme",
   "dependencies": {
+    "good": "^7.2.0",
+    "good-console": "^6.4.0",
+    "good-squeeze": "^5.0.2",
     "google-auth-library": "^0.10.0",
-    "googleapis": "^19.0.0"
+    "googleapis": "^19.0.0",
+    "hapi": "^16.4.3",
+    "inert": "^4.2.0",
+    "mongodb": "^2.2.29",
+    "uuid": "^3.1.0"
   },
   "devDependencies": {
     "standard": "^10.0.2"

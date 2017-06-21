@@ -7,6 +7,12 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "Host APIs",
+      "program": "${workspaceRoot}/app/server/hapiServer.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "Test Flow",
       "program": "${workspaceRoot}/app/test/readGSheet.js"
     }

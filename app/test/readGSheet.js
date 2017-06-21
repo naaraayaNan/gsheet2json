@@ -55,8 +55,8 @@
         console.log('Failed to read: '.concat(GSHEETLINK).concat('\n'))
       }
 
-      if (outcome.jsonData) {
-        console.log('Converted JSON is:\n', outcome.jsonData)
+      if (outcome.configJSON) {
+        console.log('Converted JSON is:\n', outcome.configJSON)
       } else {
         console.log('Conversion to JSON Failed!\n')
       }

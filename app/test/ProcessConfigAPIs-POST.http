@@ -1,0 +1,14 @@
+POST http://127.0.0.1:55555/gSheet2JSON/configurations HTTP/1.1
+content-type: application/json
+
+{
+  "gSheetLink":"https://docs.google.com/spreadsheets/d/1qpwylbiZZx_SzjplrM8MPFxk-_NuaPIGnUFZGSGB-IA/",
+  "authScopes":["https://www.googleapis.com/auth/spreadsheets.readonly"]
+}
+
+# POST http://127.0.0.1:55555/gSheet2JSON/configurations HTTP/1.1
+# content-type: application/json
+
+# [
+
+# ]

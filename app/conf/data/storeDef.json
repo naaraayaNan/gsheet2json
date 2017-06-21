@@ -1,0 +1,9 @@
+{
+  "mongoURL": "mongodb://localhost:27017/",
+  "gSheet2JSON": {
+    "database": "ProcessDefinitions",
+    "collections": {
+      "configData": "Configurations"
+    }
+  }
+}

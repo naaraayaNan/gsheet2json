@@ -168,7 +168,7 @@ function prettifyMyJSON (input, indent) {
 
 function wrapInCustomErrorObject (errorMsg, httpCode) {
   return {
-    'errorMsg': errorMsg,
+    'msgText': errorMsg,
     'httpCode': httpCode
   }
 }
