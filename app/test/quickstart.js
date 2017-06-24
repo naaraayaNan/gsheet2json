@@ -22,19 +22,21 @@ google.auth.getApplicationDefault(function (err, authClient, projectId) {
 
 /**
  * Print all data in a sample spreadsheet:
- * https://docs.google.com/spreadsheets/d/1qpwylbiZZx_SzjplrM8MPFxk-_NuaPIGnUFZGSGB-IA/edit?usp=sharing
+ * https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
  */
 function showData (authClient) {
+  var sampleSheet = 'https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit'
   var sheets = google.sheets('v4')
   sheets.spreadsheets.values.get({
     auth: authClient,
-    spreadsheetId: '1qpwylbiZZx_SzjplrM8MPFxk-_NuaPIGnUFZGSGB-IA',
-    range: 'ParallelFlow'
+    spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
+    range: 'Class Data'
   }, function (err, response) {
     if (err) {
       console.log('The API returned an error: ' + err)
       return
     }
+    console.log('Reading the link %s\n', sampleSheet)
     var rows = response.values
     if (rows.length === 0) {
       console.log('No data found.')

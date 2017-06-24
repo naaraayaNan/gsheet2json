@@ -25,4 +25,15 @@
 ### Test run **./app/test/readGSheet.js** on terminal/command prompt using:
     node ./app/test/readGSheet.js
 
-### Output would show data from the sample GSheets document read using credentials in *env-var*
+### Or, by running this:
+    npm test
+
+### Output would show data from the sample GSheets document read using credentials in *env-var* and further CLI usage info for the test script.
+
+### In addition to test and sample (./app/test/quickStart.js), the previous code update enables an API server component that can be spun up using:
+    node ./app/server/hapiServer.js
+
+### Or, by running this:
+    npm start
+
+### The server starts at 127.0.0.1:55555 and accepts /gSheet2JSON/configurations [GET/POST] and /gSheet2JSON/configurations/{configId} [GET] routes for using the ProcessConfig features.

@@ -2,12 +2,14 @@
   "name": "gsheet2json",
   "version": "1.0.0",
   "description": "Converts Google Sheets configuration rows to JSON representation for consuming in Node.js Apps",
-  "main": "start.js",
+  "main": "./app/server/hapiServer.js",
   "directories": {
-    "test": "test"
+    "example": "./app/test/quickStart.js",
+    "test": "./app/test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./app/server/hapiServer.js",
+    "test": "node ./app/test/readGSheet.js && node ./app/test/readGSheet.js --help"
   },
   "repository": {
     "type": "git",
